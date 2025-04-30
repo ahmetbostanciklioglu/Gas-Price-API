@@ -10,12 +10,13 @@ import Foundation
 
 actor GasPriceService {
     static let instance = GasPriceService()
+    
     private init() { }
     
-    func wpService(url: String = "https://api.collectapi.com/gasPrice/stateUsaPrice?state=WA") async throws -> Response {
+    func wpService<T: Decodable>(url: Endpoint) async throws -> T {
 
-        let (data, _) = try await URLSession.shared.data(for: Endpoint.urlRequest())
+        let (data, _) = try await URLSession.shared.data(for: url.urlRequest())
         
-        return try JSONDecoder().decode(Response.self, from: data)
+        return try JSONDecoder().decode(T.self, from: data)
     }
 }

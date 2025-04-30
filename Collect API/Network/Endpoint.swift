@@ -7,13 +7,30 @@
 
 import Foundation
 
-
 enum Endpoint {
-    static  func urlRequest() -> URLRequest {
+    case stateUsaPrice(state: String), allUsaPrice, usaStateCode
+    
+    var path: String {
+        switch self {
+        case .stateUsaPrice(let state):
+            return "/stateUsaPrice?state=\(state)"
+        case .allUsaPrice:
+            return "/allUsaPrice"
+        case .usaStateCode:
+            return "/usaStateCode"
+        }
+    }
+    
+    var fullPath: String {
+        Constants.baseUrl + path
+    }
+    
+    
+    func urlRequest() -> URLRequest {
         let queryItem = [
             URLQueryItem(name: "accept", value: "application/json")
         ]
-        var urlComponents = URLComponents(string: Constants.url)!
+        var urlComponents = URLComponents(string: fullPath)!
         urlComponents.queryItems = queryItem
         let url = urlComponents.url
         

@@ -11,5 +11,5 @@ import Foundation
 enum Constants {
     static var apikey = "apikey REDACTED"
     
-    static var url = "https://api.collectapi.com/gasPrice/stateUsaPrice?state=WA"
+    static var baseUrl = "https://api.collectapi.com/gasPrice"
 }
