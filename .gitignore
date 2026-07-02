@@ -1,0 +1,19 @@
+# ── Secrets ─────────────────────────────────────────────
+# Real API keys live here and must NEVER be committed.
+# Copy Secrets.example.plist → "Collect API/Secrets.plist" and fill in your key.
+Collect API/Secrets.plist
+
+# ── Xcode ───────────────────────────────────────────────
+xcuserdata/
+*.xcuserstate
+*.xcuserdatad
+DerivedData/
+build/
+*.moved-aside
+
+# ── Swift Package Manager ───────────────────────────────
+.swiftpm/
+.build/
+
+# ── macOS ───────────────────────────────────────────────
+.DS_Store

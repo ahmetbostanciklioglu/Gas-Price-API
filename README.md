@@ -31,12 +31,13 @@ Gas Price API is a lightweight SwiftUI application that queries the [CollectAPI]
 ```bash
 git clone https://github.com/ahmetbostanciklioglu/Gas-Price-API.git
 cd Gas-Price-API
+cp Secrets.example.plist "Collect API/Secrets.plist"   # then paste your key
 open "Collect API.xcodeproj"
 ```
 
-Then press **⌘R** in Xcode to build and run on a simulator or device.
+Open `Collect API/Secrets.plist`, set `COLLECT_API_KEY` to your CollectAPI key (keep the `apikey ` prefix), then press **⌘R** in Xcode to build and run on a simulator or device.
 
-> **Note:** The app talks to the CollectAPI Gas Price API, which requires an API key sent in the `Authorization` header. Provide your own key from [collectapi.com](https://collectapi.com) in `Collect API/Network/Constants.swift` before running.
+> **Note:** The app talks to the CollectAPI Gas Price API, which requires an API key sent in the `Authorization` header. The key is read at runtime from `Collect API/Secrets.plist`, which is **git-ignored** so it never lands in source control — provide your own key from [collectapi.com](https://collectapi.com). Never commit a real key.
 
 ## 📋 Requirements
 
